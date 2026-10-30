@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retrora Archive Guide</title>
+<meta name="description" content="Keep a copy of the Fortnite builds you own, on every platform: the Fortnite Archive Tool and step-by-step guides for PC, Mac, Linux, Steam Deck, Android, iOS, Xbox, PlayStation and Switch.">
+<style>
+  :root {
+    --bg: #f6f7fb; --panel: #ffffff; --text: #151826; --muted: #5a6075; --line: #dfe3ee;
+    --accent: #5b4bff; --accent-text: #ffffff; --code: #eef0f7; --warn: #8a5a00; --warn-bg: #fff6e0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1018; --panel: #161a26; --text: #eef0f8; --muted: #a2a8bd; --line: #2a3043;
+      --accent: #8b80ff; --accent-text: #0e1018; --code: #1f2433; --warn: #ffd27a; --warn-bg: #2a2412;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  a { color: var(--accent); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+  header { border-bottom: 1px solid var(--line); background: var(--panel); position: sticky; top: 0; z-index: 2; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; flex-wrap: wrap; }
+  .brand { font-weight: 800; letter-spacing: .02em; text-decoration: none; color: var(--text); }
+  nav { display: flex; gap: 14px; flex-wrap: wrap; font-size: 14px; }
+  nav a { color: var(--muted); text-decoration: none; }
+  nav a:hover { color: var(--text); }
+  .hero { padding: 48px 0 24px; }
+  .hero h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.15; margin: 0 0 12px; }
+  .lead { color: var(--muted); font-size: 18px; max-width: 720px; margin: 0; }
+  section { padding: 28px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 26px; margin: 0 0 12px; }
+  h3 { font-size: 19px; margin: 22px 0 8px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .card h3 { margin-top: 0; }
+  .btn { display: inline-block; background: var(--accent); color: var(--accent-text); text-decoration: none; font-weight: 700; padding: 8px 14px; border-radius: 8px; font-size: 14px; }
+  .meta { color: var(--muted); font-size: 14px; margin: 4px 0 12px; }
+  code, pre { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 14px; }
+  code { background: var(--code); padding: 1px 6px; border-radius: 5px; }
+  pre { background: var(--code); padding: 12px 14px; border-radius: 10px; overflow-x: auto; margin: 8px 0 14px; }
+  pre code { background: none; padding: 0; }
+  ol, ul { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .note { background: var(--warn-bg); color: var(--warn); border-radius: 10px; padding: 12px 14px; margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+  .table-wrap { overflow-x: auto; }
+  footer { color: var(--muted); font-size: 14px; padding: 28px 0 40px; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">RETRORA ARCHIVE GUIDE</a>
+    <nav>
+      <a href="#downloads">Downloads</a>
+      <a href="#quick-start">Quick start</a>
+      <a href="#pc">PC and Mac</a>
+      <a href="#ios">iOS</a>
+      <a href="#android">Android</a>
+      <a href="#xbox">Xbox</a>
+      <a href="#playstation">PlayStation</a>
+      <a href="#switch">Switch</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <h1>Keep the Fortnite builds you own</h1>
+    <p class="lead">Fortnite updates itself and the old version is gone. These guides show how to keep a copy of the version you have on every platform. The Fortnite Archive Tool then tells you exactly what each copy is, and proves it stays intact.</p>
+  </div>
+
+  <div class="note"><strong>Before anything else: turn off automatic updates</strong> on your console, phone or launcher. Once the game updates, the version you had is replaced. Archive first, then update.</div>
+
+  <section id="downloads">
+    <h2>Fortnite Archive Tool</h2>
+    <p>A small command-line program. It reads a build or a copy from any platform and says what it is: the platform, the container, the release, version and changelist. It writes a manifest of every file (SHA-1 and SHA-256) so you can check a copy later, unpacks zip, IPA and APK files safely, and packs a build into one file.</p>
+    <div class="grid">
+      <div class="card"><h3>Windows</h3><p class="meta">Windows 10 and 11, 64-bit</p><a class="btn" href="downloads/Fortnite-Archive-Tool-windows-x64.zip" download>Download</a></div>
+      <div class="card"><h3>Linux and Steam Deck</h3><p class="meta">x86-64, desktop mode on the Deck</p><a class="btn" href="downloads/Fortnite-Archive-Tool-linux-x64-steamdeck.zip" download>Download</a></div>
+      <div class="card"><h3>Linux ARM</h3><p class="meta">ARM64 (Raspberry Pi and others)</p><a class="btn" href="downloads/Fortnite-Archive-Tool-linux-arm64.zip" download>Download</a></div>
+      <div class="card"><h3>macOS (Apple Silicon)</h3><p class="meta">M1 and later. First run: right-click, then Open</p><a class="btn" href="downloads/Fortnite-Archive-Tool-macos-apple-silicon.zip" download>Download</a></div>
+      <div class="card"><h3>macOS (Intel)</h3><p class="meta">Intel Macs. First run: right-click, then Open</p><a class="btn" href="downloads/Fortnite-Archive-Tool-macos-intel.zip" download>Download</a></div>
+      <div class="card"><h3>Android</h3><p class="meta">ARM64, runs inside the Termux app</p><a class="btn" href="downloads/Fortnite-Archive-Tool-android-arm64-termux.zip" download>Download</a></div>
+    </div>
+    <p class="meta">iOS, Xbox, PlayStation and Switch cannot run a program like this. Make the copy on the device (guides below), then read it with the tool on a computer.</p>
+  </section>
+
+  <section id="quick-start">
+    <h2>Quick start</h2>
+    <p>Unzip the tool, open a terminal in that folder (on macOS and Linux, run <code>chmod +x retrora-archive</code> once), then:</p>
+    <pre><code># What is this build?
+retrora-archive identify "D:\Builds\Fortnite 12.41"
+
+# A manifest of every file, to check copies against later
+retrora-archive manifest "D:\Builds\Fortnite 12.41" fortnite-12.41.json
+
+# Is this copy still the same?
+retrora-archive verify "E:\Backup\Fortnite 12.41" fortnite-12.41.json
+
+# Unpack an IPA, APK or zip safely
+retrora-archive extract Fortnite.ipa Fortnite-ipa
+
+# One file holding the build and its manifest
+retrora-archive pack "D:\Builds\Fortnite 12.41" fortnite-12.41.zip</code></pre>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Command</th><th>What it does</th></tr>
+        <tr><td><code>identify &lt;file or folder&gt; [--json]</code></td><td>Platform, container, release, version and changelist, read from the build itself</td></tr>
+        <tr><td><code>manifest &lt;folder&gt; &lt;file.json&gt;</code></td><td>Every file with its size, SHA-1 and SHA-256</td></tr>
+        <tr><td><code>verify &lt;folder&gt; &lt;file.json&gt;</code></td><td>Missing, changed and extra files against a manifest</td></tr>
+        <tr><td><code>paks &lt;file.pak or folder&gt;</code></td><td>Lists the files inside Unreal paks whose index is not encrypted (Chapter 1 builds)</td></tr>
+        <tr><td><code>extract &lt;zip, ipa or apk&gt; &lt;folder&gt;</code></td><td>Unpacks; no entry can land outside the folder. For 7z and RAR use 7-Zip</td></tr>
+        <tr><td><code>pack &lt;folder&gt; &lt;file.zip&gt;</code></td><td>Packs a build with its manifest inside</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="pc">
+    <h2>Windows, macOS, Linux and Steam Deck</h2>
+    <p>A PC build is a folder. Copy the whole folder before the launcher updates it.</p>
+    <ol>
+      <li><strong>Epic Games Launcher:</strong> in Library, open Fortnite's <strong>...</strong> menu, then <strong>Manage</strong>, and turn off <strong>Auto-Update</strong>. The folder is shown there too (usually <code>C:\Program Files\Epic Games\Fortnite</code>).</li>
+      <li>Close the game and the launcher, then copy the folder to another drive.</li>
+      <li>Run <code>retrora-archive identify</code> on the copy, then <code>retrora-archive manifest</code>, and keep the manifest beside it.</li>
+    </ol>
+    <p>Steam Deck and Linux: a Windows build copied the same way is read with the Linux tool. On a Mac, the Mac build is an <code>.app</code>; the tool reads it as it is.</p>
+  </section>
+
+  <section id="ios">
+    <h2>iOS (iPhone and iPad)</h2>
+    <h3>Recommended: ipatool</h3>
+    <p><a href="https://github.com/majd/ipatool" rel="noopener">ipatool</a> is a free, open-source command-line program (Windows, macOS, Linux) that downloads the <code>.ipa</code> of an app on your Apple ID, straight from Apple.</p>
+    <ol>
+      <li>Install it from its releases page (or <code>brew install ipatool</code> on a Mac).</li>
+      <li>Sign in with your Apple ID: <code>ipatool auth login --email you@example.com</code>.</li>
+      <li>Find Fortnite: <code>ipatool search Fortnite</code>, and note its bundle ID.</li>
+      <li>Download it: <code>ipatool download --bundle-identifier &lt;bundle ID&gt; --output Fortnite.ipa</code>.</li>
+      <li>Newer ipatool versions can list and download the older versions Apple still serves for an app you own (<code>ipatool list-versions</code>, then <code>download --external-version-id</code>). Run <code>ipatool --help</code> to see what yours supports.</li>
+      <li>Then <code>retrora-archive identify Fortnite.ipa</code> and <code>retrora-archive manifest</code> on the unpacked copy.</li>
+    </ol>
+    <h3>Old versions you may already have</h3>
+    <p>Before iTunes 12.7 (2017), iTunes kept every synced app as an <code>.ipa</code> file. On an old PC or Mac, look in <code>Music\iTunes\iTunes Media\Mobile Applications</code>. Fortnite copies from 2018 to 2020 turn up there if the phone was ever synced with iTunes. Copy them somewhere safe.</p>
+    <h3>Also works: Apple Configurator (Mac)</h3>
+    <p>While Apple Configurator adds an app you own to a connected device, it keeps the downloaded <code>.ipa</code> in its cache (<code>~/Library/Group Containers/K36BKF7T3D.group.com.apple.configurator/Library/Caches/Assets/TemporaryItems/MobileApps/</code>). Copy it from there before the install finishes.</p>
+    <div class="note">An iPhone backup (Finder, iTunes or iCloud) does not contain apps, only their data. App Store copies are encrypted for your Apple ID; the tool says so and leaves them closed.</div>
+  </section>
+
+  <section id="android">
+    <h2>Android</h2>
+    <p>Android packages are not encrypted, so this is a full copy that the tool reads completely.</p>
+    <ol>
+      <li>On the phone: <strong>Settings &gt; About phone</strong>, tap <strong>Build number</strong> seven times, then turn on <strong>Developer options &gt; USB debugging</strong>.</li>
+      <li>On a computer with <a href="https://developer.android.com/tools/releases/platform-tools" rel="noopener">Android platform-tools</a>: <code>adb shell pm path com.epicgames.fortnite</code> lists the package parts.</li>
+      <li><code>adb pull</code> each path it lists (<code>base.apk</code> and its <code>split_*.apk</code> files).</li>
+      <li><code>retrora-archive identify base.apk</code> reads the release and version.</li>
+    </ol>
+  </section>
+
+  <section id="xbox">
+    <h2>Xbox (One and Series X|S)</h2>
+    <ol>
+      <li>Turn off <strong>Settings &gt; System &gt; Updates &gt; Keep my games &amp; apps up to date</strong>.</li>
+      <li>Plug in a USB 3 drive. Under <strong>Settings &gt; System &gt; Storage devices</strong>, format it for games. This erases the drive.</li>
+      <li>Open <strong>My games &amp; apps</strong>, then Fortnite, <strong>Manage game and add-ons</strong>, <strong>Move or copy</strong>, and <strong>Copy</strong> it to the USB drive.</li>
+      <li>Keep that drive as the archive. It copies back to an Xbox the same way.</li>
+    </ol>
+    <div class="note">The copy is encrypted and plays only on Xbox with your account. Windows does not open a drive formatted by an Xbox, so keep the drive whole, or image it with a disk-imaging tool.</div>
+  </section>
+
+  <section id="playstation">
+    <h2>PlayStation (PS4 and PS5)</h2>
+    <h3>PS5</h3>
+    <ol>
+      <li>Turn off automatic updates under <strong>Settings &gt; Saved Data and Game/App Settings &gt; Automatic Updates</strong>.</li>
+      <li><strong>Settings &gt; Storage &gt; USB Extended Storage</strong>: format a USB drive. This erases the drive.</li>
+      <li>In the <strong>Game Library</strong>, choose Fortnite, press the <strong>...</strong> button, then <strong>Move</strong> to the USB drive. Keep the drive.</li>
+    </ol>
+    <h3>PS4</h3>
+    <ol>
+      <li>Turn off <strong>Settings &gt; System &gt; Automatic Downloads</strong>.</li>
+      <li><strong>Settings &gt; System &gt; Back Up and Restore &gt; Back Up PS4</strong> to a USB drive. Every installed game, Fortnite included, goes into one backup that restores to a PS4 signed in to the same account.</li>
+    </ol>
+    <div class="note">Both copies are encrypted to your console and account.</div>
+  </section>
+
+  <section id="switch">
+    <h2>Nintendo Switch</h2>
+    <ol>
+      <li>Turn off <strong>System Settings &gt; System &gt; Auto-Update Software</strong>.</li>
+      <li>Put in a microSD card, then <strong>System Settings &gt; Data Management &gt; Manage Software &gt; Fortnite &gt; Move Data</strong> to the microSD card.</li>
+      <li>Turn the Switch off, put the card in a computer and copy the card's whole <code>Nintendo</code> folder somewhere safe. It can be copied back to the card later.</li>
+    </ol>
+    <div class="note">The files are encrypted to that Switch.</div>
+  </section>
+
+  <section id="never">
+    <h2>What the tool never does</h2>
+    <p>It never decrypts. Console packages, App Store copies and encrypted pak indexes are named as encrypted and left closed. Breaking a copy protection is not something the tool or these guides do or explain. It keeps, checks, unpacks and packs the copies you have, as they are.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  Retrora Archive Guide by Navuryx. Retrora is unofficial and not affiliated with or endorsed by Epic Games. Fortnite is a trademark of Epic Games. Keep copies of software you own, for your own use.
+</footer>
+</body>
+</html>
