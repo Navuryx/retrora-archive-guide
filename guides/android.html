@@ -109,11 +109,10 @@ adb push fortnite-android-28.01/files /sdcard/Android/data/com.epicgames.fortnit
     <ol class="steps">
       <li>Install <a href="https://f-droid.org/packages/com.termux/" rel="noopener">Termux from F-Droid</a> (the Play Store version is
       out of date).</li>
-      <li>In Termux, allow storage access and unpack the tool into Termux's own folder. Shared storage cannot run programs:
+      <li>In Termux, allow storage access and copy the tool into Termux's own folder. Shared storage cannot run programs:
 <pre><code>termux-setup-storage
-cp ~/storage/downloads/Fortnite-Archive-Tool-android-arm64-termux.zip ~
-cd ~ &amp;&amp; unzip Fortnite-Archive-Tool-android-arm64-termux.zip
-cd Fortnite-Archive-Tool-android-arm64-termux &amp;&amp; chmod +x retrora-archive
+cp ~/storage/downloads/Fortnite-Archive-Tool-android-arm64-termux ~/retrora-archive
+cd ~ &amp;&amp; chmod +x retrora-archive
 ./retrora-archive identify ~/storage/shared/Download/Fortnite.apk</code></pre></li>
     </ol>
   </section>

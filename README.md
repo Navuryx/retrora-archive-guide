@@ -6,12 +6,11 @@ How to keep a copy of the Fortnite builds you own on every platform, and the **F
 
 | platform | download |
 |---|---|
-| Windows 10 and 11 (x64) | [Fortnite-Archive-Tool-windows-x64.zip](https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-windows-x64.zip) |
-| Linux and Steam Deck (x64) | [Fortnite-Archive-Tool-linux-x64-steamdeck.zip](https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-x64-steamdeck.zip) |
-| Linux ARM64 | [Fortnite-Archive-Tool-linux-arm64.zip](https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-arm64.zip) |
-| macOS (Apple Silicon) | [Fortnite-Archive-Tool-macos-apple-silicon.zip](https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-macos-apple-silicon.zip) |
-| macOS (Intel) | [Fortnite-Archive-Tool-macos-intel.zip](https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-macos-intel.zip) |
-| Android (ARM64, in Termux) | [Fortnite-Archive-Tool-android-arm64-termux.zip](https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-android-arm64-termux.zip) |
+| Windows 10 and 11 (x64) | [Fortnite-Archive-Tool-windows-x64.exe](https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-windows-x64.exe) |
+| Linux and Steam Deck (x64) | [Fortnite-Archive-Tool-linux-x64-steamdeck](https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-x64-steamdeck) |
+| Linux ARM64 | [Fortnite-Archive-Tool-linux-arm64](https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-arm64) |
+| macOS (Apple Silicon and Intel) | [Fortnite-Archive-Tool-macos.dmg](https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-macos.dmg) |
+| Android (ARM64, in Termux) | [Fortnite-Archive-Tool-android-arm64-termux](https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-android-arm64-termux) |
 
 All of them are also on the [latest release](https://github.com/Navuryx/retrora-archive-guide/releases/latest), and in `downloads/`.
 

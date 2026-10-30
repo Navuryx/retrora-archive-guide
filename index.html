@@ -37,15 +37,14 @@
     <h2>Fortnite Archive Tool</h2>
     <p>A small command-line program. It reads a build or a copy from any platform and names it: platform, container, release, version
     and changelist. It writes a manifest of every file (SHA-1 and SHA-256), checks copies against it, unpacks zip, IPA and APK files
-    safely, and packs a build into one file. Every download below is also on the
+    safely, and packs a build into one file. Each download is the program itself, nothing to unzip. Every one is also on the
     <a href="https://github.com/Navuryx/retrora-archive-guide/releases/latest">latest release</a>.</p>
     <div class="grid">
-      <div class="card"><h3>Windows</h3><p class="meta">Windows 10 and 11, 64-bit</p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-windows-x64.zip">Download</a> <a class="btn secondary" href="downloads/Fortnite-Archive-Tool-windows-x64.zip" download>Mirror</a></div>
-      <div class="card"><h3>Linux and Steam Deck</h3><p class="meta">x86-64; on the Deck, in Desktop Mode</p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-x64-steamdeck.zip">Download</a> <a class="btn secondary" href="downloads/Fortnite-Archive-Tool-linux-x64-steamdeck.zip" download>Mirror</a></div>
-      <div class="card"><h3>Linux ARM</h3><p class="meta">ARM64 (Raspberry Pi and other ARM computers)</p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-arm64.zip">Download</a> <a class="btn secondary" href="downloads/Fortnite-Archive-Tool-linux-arm64.zip" download>Mirror</a></div>
-      <div class="card"><h3>macOS (Apple Silicon)</h3><p class="meta">M1 and later</p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-macos-apple-silicon.zip">Download</a> <a class="btn secondary" href="downloads/Fortnite-Archive-Tool-macos-apple-silicon.zip" download>Mirror</a></div>
-      <div class="card"><h3>macOS (Intel)</h3><p class="meta">Intel Macs</p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-macos-intel.zip">Download</a> <a class="btn secondary" href="downloads/Fortnite-Archive-Tool-macos-intel.zip" download>Mirror</a></div>
-      <div class="card"><h3>Android</h3><p class="meta">ARM64, inside the Termux app</p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-android-arm64-termux.zip">Download</a> <a class="btn secondary" href="downloads/Fortnite-Archive-Tool-android-arm64-termux.zip" download>Mirror</a></div>
+      <div class="card"><h3>Windows</h3><p class="meta">Windows 10 and 11, 64-bit</p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-windows-x64.exe">Download</a> <a class="btn secondary" href="downloads/Fortnite-Archive-Tool-windows-x64.exe" download>Mirror</a></div>
+      <div class="card"><h3>Linux and Steam Deck</h3><p class="meta">x86-64; on the Deck, in Desktop Mode</p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-x64-steamdeck">Download</a> <a class="btn secondary" href="downloads/Fortnite-Archive-Tool-linux-x64-steamdeck" download>Mirror</a></div>
+      <div class="card"><h3>Linux ARM</h3><p class="meta">ARM64 (Raspberry Pi and other ARM computers)</p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-arm64">Download</a> <a class="btn secondary" href="downloads/Fortnite-Archive-Tool-linux-arm64" download>Mirror</a></div>
+      <div class="card"><h3>macOS</h3><p class="meta">Apple Silicon and Intel, one disk image</p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-macos.dmg">Download</a> <a class="btn secondary" href="downloads/Fortnite-Archive-Tool-macos.dmg" download>Mirror</a></div>
+      <div class="card"><h3>Android</h3><p class="meta">ARM64, inside the Termux app</p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-android-arm64-termux">Download</a> <a class="btn secondary" href="downloads/Fortnite-Archive-Tool-android-arm64-termux" download>Mirror</a></div>
     </div>
     <p class="meta">iOS, Xbox, PlayStation and Switch cannot run a program like this. Make the copy on the device with its guide, then
     read it with the tool on a computer.</p>
@@ -72,9 +71,9 @@
       <li>In the Epic Games Launcher, Library, open Fortnite's <strong>...</strong> menu, then <strong>Manage</strong>, and turn off
       <strong>Auto-Update</strong>. The install folder is shown there (usually <code>C:\Program Files\Epic Games\Fortnite</code>).</li>
       <li>Close the game and the launcher, then copy the whole folder to another drive.</li>
-      <li>Unzip the tool, open PowerShell in its folder and run:
-<pre><code>.\retrora-archive.exe identify "E:\Fortnite 12.41"
-.\retrora-archive.exe manifest "E:\Fortnite 12.41" "E:\Fortnite 12.41.json"</code></pre></li>
+      <li>Open PowerShell in Downloads (where the tool is) and run:
+<pre><code>.\Fortnite-Archive-Tool-windows-x64.exe identify "E:\Fortnite 12.41"
+.\Fortnite-Archive-Tool-windows-x64.exe manifest "E:\Fortnite 12.41" "E:\Fortnite 12.41.json"</code></pre></li>
     </ol>
   </section>
 

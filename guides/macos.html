@@ -37,21 +37,21 @@
   </ol></div>
 
   <section id="which">
-    <h2>1. Which download</h2>
-    <p>Apple menu &gt; <strong>About This Mac</strong>. <strong>Chip: Apple M...</strong> means Apple Silicon; <strong>Processor:
-    Intel</strong> means Intel.</p>
-    <p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-macos-apple-silicon.zip">Apple Silicon</a> <a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-macos-intel.zip">Intel</a></p>
+    <h2>1. The download</h2>
+    <p>One disk image runs on every Mac, Apple Silicon and Intel.</p>
+    <p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-macos.dmg">Download for macOS</a></p>
   </section>
 
   <section id="run">
     <h2>2. Running the tool</h2>
     <ol class="steps">
-      <li>Double-click the zip in Downloads to unpack it.</li>
-      <li>Open <strong>Terminal</strong> (Applications &gt; Utilities) and go to the folder:
-<pre><code>cd ~/Downloads/Fortnite-Archive-Tool-macos-apple-silicon
-chmod +x retrora-archive</code></pre></li>
+      <li>Double-click <strong>Fortnite-Archive-Tool-macos.dmg</strong> in Downloads. A disk named <strong>Archive Tool</strong>
+      opens with the program and its README.</li>
+      <li>Open <strong>Terminal</strong> (Applications &gt; Utilities) and copy the program to your home folder:
+<pre><code>cp "/Volumes/Archive Tool/Fortnite Archive Tool" ~/retrora-archive
+cd ~</code></pre></li>
       <li>macOS blocks programs downloaded from the internet that are not notarised. Remove that mark from this one file:
-<pre><code>xattr -d com.apple.quarantine retrora-archive</code></pre>
+<pre><code>xattr -c retrora-archive</code></pre>
       Or run it once, then open <strong>System Settings &gt; Privacy &amp; Security</strong> and choose <strong>Allow Anyway</strong>.</li>
       <li>Run it:
 <pre><code>./retrora-archive identify "/Users/Shared/Epic Games/Fortnite"</code></pre></li>
@@ -74,7 +74,7 @@ chmod +x retrora-archive</code></pre></li>
     <h2>4. Common problems</h2>
     <ul>
       <li><strong>"cannot be opened because the developer cannot be verified":</strong> use the <code>xattr</code> step above.</li>
-      <li><strong>"Bad CPU type in executable":</strong> you have the other download (Intel versus Apple Silicon).</li>
+      <li><strong>"Bad CPU type in executable":</strong> the Mac runs a macOS older than 10.12, which the tool does not support.</li>
       <li><strong>"Permission denied":</strong> run <code>chmod +x retrora-archive</code>.</li>
     </ul>
   </section>

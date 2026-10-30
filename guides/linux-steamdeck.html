@@ -41,7 +41,7 @@
     <ol class="steps">
       <li>Press the <strong>Steam</strong> button, <strong>Power &gt; Switch to Desktop</strong>.</li>
       <li>Open Firefox (or the Discover store to install it) and download the
-      <a href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-x64-steamdeck.zip">Linux and Steam Deck tool</a>.</li>
+      <a href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-x64-steamdeck">Linux and Steam Deck tool</a>.</li>
       <li>Open <strong>Konsole</strong> from the application menu (System &gt; Konsole). A keyboard and mouse help; the on-screen keyboard
       is Steam + X.</li>
     </ol>
@@ -50,12 +50,11 @@
   <section id="run">
     <h2>2. Running the tool</h2>
 <pre><code>cd ~/Downloads
-unzip Fortnite-Archive-Tool-linux-x64-steamdeck.zip
-cd Fortnite-Archive-Tool-linux-x64-steamdeck
+mv Fortnite-Archive-Tool-linux-x64-steamdeck retrora-archive
 chmod +x retrora-archive
 ./retrora-archive identify "/path/to/Fortnite 12.41"
 ./retrora-archive manifest "/path/to/Fortnite 12.41" "fortnite-12.41.json"</code></pre>
-    <p>On an ARM computer, use the <a href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-arm64.zip">Linux ARM</a> download instead.</p>
+    <p>On an ARM computer, use the <a href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-arm64">Linux ARM</a> download instead (same steps, with its own file name).</p>
   </section>
 
   <section id="drives">
