@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PlayStation guide: Retrora Archive Guide</title>
+<meta name="description" content="Keep a copy of Fortnite on PS5 (USB Extended Storage) and PS4 (Back Up and Restore), step by step.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">RETRORA ARCHIVE GUIDE</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../guides/ios.html">iOS</a>
+      <a href="../guides/android.html">Android</a>
+      <a href="../guides/xbox.html">Xbox</a>
+      <a href="../guides/playstation.html" aria-current="page">PlayStation</a>
+      <a href="../guides/switch.html">Switch</a>
+      <a href="../guides/macos.html">macOS</a>
+      <a href="../guides/linux-steamdeck.html">Linux and Steam Deck</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <h1>PlayStation (PS4 and PS5)</h1>
+    <p class="lead">The PS5 can move games to a USB drive and back. The PS4 can back up the whole console, games included, to a USB drive.
+    Both copies are encrypted to your console and account, and both are real archives of the version you had.</p>
+  </div>
+  <div class="toc"><strong>On this page</strong><ol>
+    <li><a href="#ps5">PS5: USB Extended Storage</a></li>
+    <li><a href="#ps4">PS4: Back Up and Restore</a></li>
+    <li><a href="#computer">Keeping it on a computer</a></li>
+    <li><a href="#problems">Common problems</a></li>
+  </ol></div>
+
+  <section id="ps5">
+    <h2>1. PS5: USB Extended Storage</h2>
+    <h3>You need</h3>
+    <ul><li>A USB drive of 250 GB to 8 TB, SuperSpeed USB 5 Gbps or faster. Formatting erases it.</li></ul>
+    <h3>Steps</h3>
+    <ol class="steps">
+      <li>Stop updates: <strong>Settings &gt; Saved Data and Game/App Settings &gt; Automatic Updates</strong>, turn off
+      <strong>Auto-Download</strong>.</li>
+      <li>Connect the drive to a rear USB port (or a SuperSpeed front port).</li>
+      <li><strong>Settings &gt; Storage &gt; USB Extended Storage &gt; Format as USB Extended Storage</strong>.</li>
+      <li><strong>Settings &gt; Storage &gt; Console Storage &gt; Games and Apps &gt; Move Items</strong>, tick Fortnite, then
+      <strong>Move</strong>.</li>
+      <li>Label the drive with the version and date. To play, move it back the same way (PS5 games play from the console's own
+      storage; PS4 games can play from the USB drive).</li>
+    </ol>
+  </section>
+
+  <section id="ps4">
+    <h2>2. PS4: Back Up and Restore</h2>
+    <h3>You need</h3>
+    <ul><li>A USB drive formatted FAT32 or exFAT, with at least twice the space your installed games use.</li></ul>
+    <h3>Steps</h3>
+    <ol class="steps">
+      <li>Stop updates: <strong>Settings &gt; System &gt; Automatic Downloads</strong>, turn off <strong>Application Update
+      Files</strong>.</li>
+      <li>Plug in the drive. <strong>Settings &gt; System &gt; Back Up and Restore &gt; Back Up PS4</strong>.</li>
+      <li>Make sure <strong>Applications</strong> is included, name the backup, and start it. The PS4 restarts and backs up.</li>
+      <li>The backup is the <code>PS4\EXPORT\BACKUP</code> folder on the drive. Copy that folder to a computer as well.</li>
+    </ol>
+    <h3>Restoring</h3>
+    <p><strong>Settings &gt; System &gt; Back Up and Restore &gt; Restore PS4</strong>. This erases the PS4 and puts back everything in the
+    backup, Fortnite included. Sign in with the same account afterwards.</p>
+  </section>
+
+  <section id="computer">
+    <h2>3. Keeping it on a computer</h2>
+    <ul>
+      <li><strong>PS4 backup:</strong> copy the <code>PS4</code> folder from the drive, then
+      <code>retrora-archive manifest PS4 ps4-backup.json</code>.</li>
+      <li><strong>PS5 extended storage:</strong> computers do not open this drive. Keep the drive itself, or make a whole-drive image
+      exactly as in the <a href="xbox.html#image">Xbox guide's imaging step</a>, and do not let Windows format it.</li>
+    </ul>
+  </section>
+
+  <section id="problems">
+    <h2>4. Common problems</h2>
+    <ul>
+      <li><strong>The PS5 will not format the drive:</strong> it is smaller than 250 GB or slower than SuperSpeed 5 Gbps.</li>
+      <li><strong>The PS4 says there is not enough space:</strong> use a larger drive. The backup needs room to spare.</li>
+      <li><strong>Fortnite will not start from an old copy:</strong> its servers require the newest version. The copy is an archive.</li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap">
+  Retrora Archive Guide by Navuryx. Retrora is unofficial and not affiliated with or endorsed by Epic Games, Apple, Microsoft, Sony or
+  Nintendo. Fortnite is a trademark of Epic Games. Keep copies of software you own, for your own use. These guides use only each
+  device's own features; nothing here breaks or removes copy protection.
+</footer>
+</body>
+</html>

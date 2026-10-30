@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linux and Steam Deck guide: Retrora Archive Guide</title>
+<meta name="description" content="Run the Fortnite Archive Tool on Linux and the Steam Deck, and keep build copies on external drives.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">RETRORA ARCHIVE GUIDE</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../guides/ios.html">iOS</a>
+      <a href="../guides/android.html">Android</a>
+      <a href="../guides/xbox.html">Xbox</a>
+      <a href="../guides/playstation.html">PlayStation</a>
+      <a href="../guides/switch.html">Switch</a>
+      <a href="../guides/macos.html">macOS</a>
+      <a href="../guides/linux-steamdeck.html" aria-current="page">Linux and Steam Deck</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <h1>Linux and Steam Deck</h1>
+    <p class="lead">Fortnite builds on Linux and the Steam Deck are the Windows builds, run through Proton or Wine. Keeping one is copying
+    its folder; the tool runs in a terminal.</p>
+  </div>
+  <div class="toc"><strong>On this page</strong><ol>
+    <li><a href="#deck">Steam Deck: Desktop Mode</a></li>
+    <li><a href="#run">Running the tool</a></li>
+    <li><a href="#drives">External drives</a></li>
+    <li><a href="#problems">Common problems</a></li>
+  </ol></div>
+
+  <section id="deck">
+    <h2>1. Steam Deck: Desktop Mode</h2>
+    <ol class="steps">
+      <li>Press the <strong>Steam</strong> button, <strong>Power &gt; Switch to Desktop</strong>.</li>
+      <li>Open Firefox (or the Discover store to install it) and download the
+      <a href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-x64-steamdeck.zip">Linux and Steam Deck tool</a>.</li>
+      <li>Open <strong>Konsole</strong> from the application menu (System &gt; Konsole). A keyboard and mouse help; the on-screen keyboard
+      is Steam + X.</li>
+    </ol>
+  </section>
+
+  <section id="run">
+    <h2>2. Running the tool</h2>
+<pre><code>cd ~/Downloads
+unzip Fortnite-Archive-Tool-linux-x64-steamdeck.zip
+cd Fortnite-Archive-Tool-linux-x64-steamdeck
+chmod +x retrora-archive
+./retrora-archive identify "/path/to/Fortnite 12.41"
+./retrora-archive manifest "/path/to/Fortnite 12.41" "fortnite-12.41.json"</code></pre>
+    <p>On an ARM computer, use the <a href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-linux-arm64.zip">Linux ARM</a> download instead.</p>
+  </section>
+
+  <section id="drives">
+    <h2>3. External drives</h2>
+    <ul>
+      <li><strong>exFAT</strong> works on Windows, macOS, Linux and the Deck: the simplest choice for a drive you move between them.</li>
+      <li><strong>ext4</strong> is best when the drive stays on Linux. Keep file permissions with
+      <code>cp -a "Fortnite 12.41" /run/media/$USER/Backup/</code>.</li>
+      <li>On the Deck, drives and microSD cards appear under <code>/run/media/deck/</code>.</li>
+    </ul>
+  </section>
+
+  <section id="problems">
+    <h2>4. Common problems</h2>
+    <ul>
+      <li><strong>"Permission denied":</strong> run <code>chmod +x retrora-archive</code>, and run it from a Linux-formatted folder
+      (programs cannot run from some exFAT or NTFS mounts).</li>
+      <li><strong>"No such file or directory" for a file that exists:</strong> you have the ARM download on an x86 computer, or the
+      reverse.</li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap">
+  Retrora Archive Guide by Navuryx. Retrora is unofficial and not affiliated with or endorsed by Epic Games, Apple, Microsoft, Sony or
+  Nintendo. Fortnite is a trademark of Epic Games. Keep copies of software you own, for your own use. These guides use only each
+  device's own features; nothing here breaks or removes copy protection.
+</footer>
+</body>
+</html>

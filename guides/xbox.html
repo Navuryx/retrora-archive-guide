@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xbox guide: Retrora Archive Guide</title>
+<meta name="description" content="Keep a copy of Fortnite on Xbox One and Series X|S: copy it to a USB drive formatted for games, and keep an image of the drive.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">RETRORA ARCHIVE GUIDE</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../guides/ios.html">iOS</a>
+      <a href="../guides/android.html">Android</a>
+      <a href="../guides/xbox.html" aria-current="page">Xbox</a>
+      <a href="../guides/playstation.html">PlayStation</a>
+      <a href="../guides/switch.html">Switch</a>
+      <a href="../guides/macos.html">macOS</a>
+      <a href="../guides/linux-steamdeck.html">Linux and Steam Deck</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <h1>Xbox One and Series X|S</h1>
+    <p class="lead">The Xbox can copy an installed game to a USB drive by itself. That drive is your archive. To keep it on a computer
+    as well, make a whole-drive image.</p>
+  </div>
+  <div class="toc"><strong>On this page</strong><ol>
+    <li><a href="#need">What you need</a></li>
+    <li><a href="#updates">Stop updates</a></li>
+    <li><a href="#format">Format the drive for games</a></li>
+    <li><a href="#copy">Copy Fortnite to the drive</a></li>
+    <li><a href="#image">Keep an image of the drive on a computer</a></li>
+    <li><a href="#back">Put it back</a></li>
+    <li><a href="#problems">Common problems</a></li>
+  </ol></div>
+
+  <section id="need">
+    <h2>1. What you need</h2>
+    <ul>
+      <li>A USB 3.0 (or newer) drive of 128 GB or more. Formatting erases it.</li>
+      <li>The Xbox signed in to the account that owns Fortnite.</li>
+    </ul>
+  </section>
+
+  <section id="updates">
+    <h2>2. Stop updates</h2>
+    <p><strong>Settings &gt; System &gt; Updates</strong>: turn off <strong>Keep my games &amp; apps up to date</strong>. Do this before
+    the console sees a new Fortnite version.</p>
+  </section>
+
+  <section id="format">
+    <h2>3. Format the drive for games</h2>
+    <ol class="steps">
+      <li>Plug the drive into the Xbox. If it asks how to use the drive, choose <strong>Format storage device</strong>.</li>
+      <li>Otherwise: <strong>Settings &gt; System &gt; Storage devices</strong>, select the drive, then
+      <strong>Format for games &amp; apps</strong>. Give it a name such as <code>Fortnite archive</code>.</li>
+    </ol>
+  </section>
+
+  <section id="copy">
+    <h2>4. Copy Fortnite to the drive</h2>
+    <ol class="steps">
+      <li><strong>My games &amp; apps &gt; See all &gt; Games</strong>, highlight Fortnite and press the <strong>Menu</strong> button.</li>
+      <li><strong>Manage game and add-ons</strong>, then <strong>Move or copy</strong> (on the right).</li>
+      <li>Choose the USB drive and <strong>Copy selected</strong>. Copy keeps the internal one too; Move takes it off the console.</li>
+      <li>When it finishes, the drive holds that version. Label the drive with the version and date.</li>
+    </ol>
+  </section>
+
+  <section id="image">
+    <h2>5. Keep an image of the drive on a computer</h2>
+    <p>Windows does not open a drive formatted by an Xbox, and you should not let it "fix" or format the drive. Make a sector-by-sector
+    image instead, which copies the drive exactly as it is.</p>
+    <h3>On Linux (or a Steam Deck in Desktop Mode)</h3>
+    <ol class="steps">
+      <li>Plug in the drive and find it: <code>lsblk</code>. It is the disk whose size matches, for example <code>/dev/sdb</code> (the
+      whole disk, not a numbered partition).</li>
+      <li>Image it to another drive with enough room:
+<pre><code>sudo dd if=/dev/sdb of=/media/backup/xbox-fortnite.img bs=4M status=progress conv=fsync</code></pre></li>
+      <li>Put the image in its own folder and make a manifest:
+<pre><code>retrora-archive manifest /media/backup/xbox-fortnite xbox-fortnite.json</code></pre></li>
+    </ol>
+    <h3>On Windows</h3>
+    <p>Use a disk-imaging program that can read a whole device into an image file (a "read" or "create image" of the disk, not of a
+    partition). When Windows offers to format the drive, choose Cancel.</p>
+    <div class="note">Double-check the device name before running <code>dd</code>. Swapping <code>if</code> and <code>of</code> overwrites
+    the drive.</div>
+  </section>
+
+  <section id="back">
+    <h2>6. Put it back</h2>
+    <ul>
+      <li>Plug the drive into the Xbox. Fortnite shows in My games &amp; apps and can be played or copied back to the console the same
+      way. It plays with the account that owns it.</li>
+      <li>From an image: write it back to a drive of the same size or larger with
+      <code>sudo dd if=xbox-fortnite.img of=/dev/sdb bs=4M status=progress conv=fsync</code>.</li>
+    </ul>
+    <div class="note">Fortnite's own servers only accept the newest version, so an old copy is an archive, not a way to play online.
+    Games built for Series X|S can be stored on a USB drive but must be copied back inside to play.</div>
+  </section>
+
+  <section id="problems">
+    <h2>7. Common problems</h2>
+    <ul>
+      <li><strong>"Move or copy" is missing:</strong> the drive is not formatted for games, or it is USB 2.0.</li>
+      <li><strong>The copy is grey on another console:</strong> sign in with the account that owns Fortnite.</li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap">
+  Retrora Archive Guide by Navuryx. Retrora is unofficial and not affiliated with or endorsed by Epic Games, Apple, Microsoft, Sony or
+  Nintendo. Fortnite is a trademark of Epic Games. Keep copies of software you own, for your own use. These guides use only each
+  device's own features; nothing here breaks or removes copy protection.
+</footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Android guide: Retrora Archive Guide</title>
+<meta name="description" content="Keep a full copy of Fortnite for Android with adb: the split APKs, the downloaded game files, and putting it all back.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">RETRORA ARCHIVE GUIDE</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../guides/ios.html">iOS</a>
+      <a href="../guides/android.html" aria-current="page">Android</a>
+      <a href="../guides/xbox.html">Xbox</a>
+      <a href="../guides/playstation.html">PlayStation</a>
+      <a href="../guides/switch.html">Switch</a>
+      <a href="../guides/macos.html">macOS</a>
+      <a href="../guides/linux-steamdeck.html">Linux and Steam Deck</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <h1>Android</h1>
+    <p class="lead">Android is the one mobile platform where a copy is complete and readable: the APK files are not encrypted, and the
+    tool reads them fully. You need a computer with adb, or the tool on the phone itself in Termux.</p>
+  </div>
+  <div class="toc"><strong>On this page</strong><ol>
+    <li><a href="#updates">Stop updates</a></li>
+    <li><a href="#adb">Set up adb</a></li>
+    <li><a href="#copy">Copy the app (APKs)</a></li>
+    <li><a href="#files">Copy the downloaded game files</a></li>
+    <li><a href="#check">Check the copy</a></li>
+    <li><a href="#back">Put it back</a></li>
+    <li><a href="#termux">The tool on the phone (Termux)</a></li>
+    <li><a href="#problems">Common problems</a></li>
+  </ol></div>
+
+  <section id="updates">
+    <h2>1. Stop updates</h2>
+    <p>Fortnite on Android comes from the Epic Games app or the Samsung Galaxy Store. Turn off automatic updates in whichever one
+    installed it, before you start.</p>
+  </section>
+
+  <section id="adb">
+    <h2>2. Set up adb</h2>
+    <ol class="steps">
+      <li>Install Android's platform-tools on the computer:
+        <ul>
+          <li><strong>Windows:</strong> <code>winget install Google.PlatformTools</code>, or download
+          <a href="https://developer.android.com/tools/releases/platform-tools" rel="noopener">platform-tools</a> and unzip it.</li>
+          <li><strong>macOS:</strong> <code>brew install android-platform-tools</code>.</li>
+          <li><strong>Linux:</strong> <code>sudo apt install adb</code> (or your distribution's package).</li>
+        </ul></li>
+      <li>On the phone: <strong>Settings &gt; About phone</strong>, tap <strong>Build number</strong> seven times. Then
+      <strong>Settings &gt; System &gt; Developer options</strong> and turn on <strong>USB debugging</strong>.</li>
+      <li>Connect the phone with a cable and run <code>adb devices</code>. Accept the prompt on the phone. The phone should now be listed
+      as <code>device</code>.</li>
+    </ol>
+  </section>
+
+  <section id="copy">
+    <h2>3. Copy the app (APKs)</h2>
+    <ol class="steps">
+      <li>Find the version you have:
+<pre><code>adb shell dumpsys package com.epicgames.fortnite | grep versionName</code></pre>
+      (on Windows PowerShell, use <code>| findstr versionName</code>).</li>
+      <li>List the app's files. Modern installs are split into several APKs:
+<pre><code>adb shell pm path com.epicgames.fortnite</code></pre>
+      Each line is <code>package:/data/app/.../base.apk</code> or <code>.../split_*.apk</code>.</li>
+      <li>Pull every one of them into a folder named after the version:
+<pre><code>mkdir fortnite-android-28.01
+cd fortnite-android-28.01
+adb pull /data/app/.../base.apk
+adb pull /data/app/.../split_config.arm64_v8a.apk</code></pre>
+      (one <code>adb pull</code> per line from the previous step, with the path after <code>package:</code>).</li>
+    </ol>
+  </section>
+
+  <section id="files">
+    <h2>4. Copy the downloaded game files</h2>
+    <p>Fortnite downloads most of the game after it is installed. Those files live in the app's folder on shared storage. Pull them too,
+    or the copy is only the installer:</p>
+<pre><code>adb pull /sdcard/Android/data/com.epicgames.fortnite/files fortnite-android-28.01/files</code></pre>
+    <p>This can be several gigabytes. If the phone refuses access to that folder, connect it over USB in file transfer mode and copy
+    <code>Android/data/com.epicgames.fortnite</code> with the computer's file manager.</p>
+  </section>
+
+  <section id="check">
+    <h2>5. Check the copy</h2>
+<pre><code>retrora-archive identify fortnite-android-28.01/base.apk
+retrora-archive manifest fortnite-android-28.01 fortnite-android-28.01.json</code></pre>
+  </section>
+
+  <section id="back">
+    <h2>6. Put it back</h2>
+<pre><code>adb install-multiple fortnite-android-28.01/base.apk fortnite-android-28.01/split_*.apk
+adb push fortnite-android-28.01/files /sdcard/Android/data/com.epicgames.fortnite/</code></pre>
+    <p>Android only installs a version over an older one. To go back to an older copy, uninstall Fortnite first (which deletes its
+    downloaded files), then install the copy.</p>
+  </section>
+
+  <section id="termux">
+    <h2>7. The tool on the phone (Termux)</h2>
+    <ol class="steps">
+      <li>Install <a href="https://f-droid.org/packages/com.termux/" rel="noopener">Termux from F-Droid</a> (the Play Store version is
+      out of date).</li>
+      <li>In Termux, allow storage access and unpack the tool into Termux's own folder. Shared storage cannot run programs:
+<pre><code>termux-setup-storage
+cp ~/storage/downloads/Fortnite-Archive-Tool-android-arm64-termux.zip ~
+cd ~ &amp;&amp; unzip Fortnite-Archive-Tool-android-arm64-termux.zip
+cd Fortnite-Archive-Tool-android-arm64-termux &amp;&amp; chmod +x retrora-archive
+./retrora-archive identify ~/storage/shared/Download/Fortnite.apk</code></pre></li>
+    </ol>
+  </section>
+
+  <section id="problems">
+    <h2>8. Common problems</h2>
+    <ul>
+      <li><strong><code>unauthorized</code> in <code>adb devices</code>:</strong> unlock the phone and accept the USB debugging prompt.</li>
+      <li><strong>Only <code>base.apk</code> installs and the game will not open:</strong> the split APKs are missing. Use
+      <code>install-multiple</code> with all of them.</li>
+      <li><strong><code>INSTALL_FAILED_VERSION_DOWNGRADE</code>:</strong> uninstall the newer Fortnite first.</li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap">
+  Retrora Archive Guide by Navuryx. Retrora is unofficial and not affiliated with or endorsed by Epic Games, Apple, Microsoft, Sony or
+  Nintendo. Fortnite is a trademark of Epic Games. Keep copies of software you own, for your own use. These guides use only each
+  device's own features; nothing here breaks or removes copy protection.
+</footer>
+</body>
+</html>

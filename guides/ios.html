@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iOS guide: Retrora Archive Guide</title>
+<meta name="description" content="Keep a copy of Fortnite for iPhone and iPad: ipatool, old iTunes copies and Apple Configurator, step by step.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">RETRORA ARCHIVE GUIDE</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../guides/ios.html" aria-current="page">iOS</a>
+      <a href="../guides/android.html">Android</a>
+      <a href="../guides/xbox.html">Xbox</a>
+      <a href="../guides/playstation.html">PlayStation</a>
+      <a href="../guides/switch.html">Switch</a>
+      <a href="../guides/macos.html">macOS</a>
+      <a href="../guides/linux-steamdeck.html">Linux and Steam Deck</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <h1>iOS (iPhone and iPad)</h1>
+    <p class="lead">An iOS app is an <code>.ipa</code> file. There are three ways to get the <code>.ipa</code> of a version you own.
+    ipatool is the recommended one: it works on Windows, macOS and Linux and talks to Apple directly.</p>
+  </div>
+  <div class="toc"><strong>On this page</strong><ol>
+    <li><a href="#ipatool">ipatool (recommended)</a></li>
+    <li><a href="#itunes">Old versions in an old iTunes library</a></li>
+    <li><a href="#configurator">Apple Configurator on a Mac</a></li>
+    <li><a href="#check">Check and keep the copy</a></li>
+    <li><a href="#back">Putting it back on a device</a></li>
+    <li><a href="#problems">Common problems</a></li>
+  </ol></div>
+
+  <section id="ipatool">
+    <h2>1. ipatool (recommended)</h2>
+    <p><a href="https://github.com/majd/ipatool" rel="noopener">ipatool</a> is free and open source. It signs in with your Apple ID and
+    downloads the <code>.ipa</code> of an app your Apple ID has, straight from Apple. It does not change or unlock the app.</p>
+    <h3>You need</h3>
+    <ul>
+      <li>Your Apple ID and password, and a device that receives its two-factor codes.</li>
+      <li>A Windows PC, Mac or Linux computer.</li>
+      <li>Fortnite on that Apple ID. ipatool can only fetch what the App Store in your Apple ID's country carries.</li>
+    </ul>
+    <h3>Install</h3>
+    <ul>
+      <li><strong>macOS:</strong> <code>brew install ipatool</code> (with <a href="https://brew.sh" rel="noopener">Homebrew</a>).</li>
+      <li><strong>Windows and Linux:</strong> download the archive for your system from
+      <a href="https://github.com/majd/ipatool/releases" rel="noopener">ipatool's releases</a>, unpack it, and open a terminal
+      (PowerShell on Windows) in that folder. On Linux, <code>chmod +x ipatool*</code> first.</li>
+    </ul>
+    <h3>Steps</h3>
+    <ol class="steps">
+      <li>Sign in:
+<pre><code>ipatool auth login --email you@example.com</code></pre>
+      It asks for your password, then the two-factor code sent to your devices. On Windows and Linux it may also ask for a passphrase
+      to protect the saved sign-in on this computer; choose one and remember it.</li>
+      <li>Find Fortnite and its bundle ID:
+<pre><code>ipatool search "Fortnite" --limit 5</code></pre>
+      Note the <code>bundleID</code> of Epic's Fortnite in the results.</li>
+      <li>If the app is free and your Apple ID has never had it, add it to your purchases first:
+<pre><code>ipatool purchase --bundle-identifier &lt;bundle ID&gt;</code></pre></li>
+      <li>Download the current version:
+<pre><code>ipatool download --bundle-identifier &lt;bundle ID&gt; --output Fortnite.ipa</code></pre></li>
+      <li><strong>Older versions.</strong> Newer ipatool versions can list the versions Apple still serves for an app you own, and
+      download one by its id:
+<pre><code>ipatool list-versions --bundle-identifier &lt;bundle ID&gt;
+ipatool download --bundle-identifier &lt;bundle ID&gt; --external-version-id &lt;id&gt; --output Fortnite-old.ipa</code></pre>
+      The list holds numbers, not version names. Download one and run <code>retrora-archive identify</code> on it to see which
+      Fortnite version it is. Run <code>ipatool --help</code> to see what your version supports.</li>
+    </ol>
+  </section>
+
+  <section id="itunes">
+    <h2>2. Old versions in an old iTunes library</h2>
+    <p>Before iTunes 12.7 (September 2017), iTunes kept every app it synced as an <code>.ipa</code>. If an iPhone was ever synced
+    with iTunes on a computer, its apps may still be there, including Fortnite copies from 2018 to 2020.</p>
+    <ol class="steps">
+      <li>On that old PC, open <code>C:\Users\&lt;you&gt;\Music\iTunes\iTunes Media\Mobile Applications</code>. On an old Mac,
+      <code>~/Music/iTunes/iTunes Media/Mobile Applications</code>.</li>
+      <li>Look for <code>Fortnite *.ipa</code>. Each file is one version.</li>
+      <li>Copy them to a safe drive. These are often the only copies of old iOS versions that exist.</li>
+    </ol>
+  </section>
+
+  <section id="configurator">
+    <h2>3. Apple Configurator on a Mac</h2>
+    <p>Apple Configurator is free in the Mac App Store. When it installs an app you own on a connected iPhone or iPad, it downloads
+    the <code>.ipa</code> and keeps it in a cache for a moment.</p>
+    <ol class="steps">
+      <li>Install Apple Configurator, open it and sign in with your Apple ID (<strong>Account &gt; Sign In</strong>).</li>
+      <li>Connect the iPhone or iPad with a cable and trust the computer.</li>
+      <li>Select the device, then <strong>Add &gt; Apps</strong>, choose Fortnite and <strong>Add</strong>.</li>
+      <li>When it says the app already exists on the device, <strong>leave that message open</strong>. The <code>.ipa</code> is now in
+      <code>~/Library/Group Containers/K36BKF7T3D.group.com.apple.configurator/Library/Caches/Assets/TemporaryItems/MobileApps/</code>.
+      In Finder, <strong>Go &gt; Go to Folder</strong>, paste that path and copy the <code>.ipa</code> out.</li>
+      <li>Then choose <strong>Stop</strong> on the message.</li>
+    </ol>
+  </section>
+
+  <section id="check">
+    <h2>4. Check and keep the copy</h2>
+<pre><code>retrora-archive identify Fortnite.ipa
+retrora-archive extract Fortnite.ipa Fortnite-ipa
+retrora-archive manifest Fortnite-ipa Fortnite-ipa.json</code></pre>
+    <p><code>identify</code> shows the release and version. Keep the <code>.ipa</code> itself, plus the manifest. The game inside is
+    encrypted for Apple IDs; the tool says so and leaves it closed.</p>
+  </section>
+
+  <section id="back">
+    <h2>5. Putting it back on a device</h2>
+    <p>A copy from the App Store installs on devices signed in to the same Apple ID. On a Mac, Apple Configurator:
+    <strong>Add &gt; Apps &gt; Choose from my Mac</strong>, then pick the <code>.ipa</code>. Fortnite's own servers only accept the newest
+    version, so an old copy is an archive, not a way to play online.</p>
+  </section>
+
+  <section id="problems">
+    <h2>6. Common problems</h2>
+    <ul>
+      <li><strong>"license is required" or "not purchased":</strong> run <code>ipatool purchase</code> first (free apps only).</li>
+      <li><strong>Search finds nothing:</strong> your Apple ID's country store does not carry Fortnite. ipatool uses that store.</li>
+      <li><strong>Sign-in loops:</strong> run <code>ipatool auth revoke</code>, then sign in again and enter the newest two-factor code.</li>
+      <li><strong>An iPhone backup has no apps in it:</strong> correct. Backups hold app data only; use one of the three ways above.</li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap">
+  Retrora Archive Guide by Navuryx. Retrora is unofficial and not affiliated with or endorsed by Epic Games, Apple, Microsoft, Sony or
+  Nintendo. Fortnite is a trademark of Epic Games. Keep copies of software you own, for your own use. These guides use only each
+  device's own features; nothing here breaks or removes copy protection.
+</footer>
+</body>
+</html>

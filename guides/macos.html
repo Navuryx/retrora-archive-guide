@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>macOS guide: Retrora Archive Guide</title>
+<meta name="description" content="Run the Fortnite Archive Tool on a Mac past Gatekeeper, and keep the Mac builds of Fortnite.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">RETRORA ARCHIVE GUIDE</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../guides/ios.html">iOS</a>
+      <a href="../guides/android.html">Android</a>
+      <a href="../guides/xbox.html">Xbox</a>
+      <a href="../guides/playstation.html">PlayStation</a>
+      <a href="../guides/switch.html">Switch</a>
+      <a href="../guides/macos.html" aria-current="page">macOS</a>
+      <a href="../guides/linux-steamdeck.html">Linux and Steam Deck</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <h1>macOS</h1>
+    <p class="lead">Two things on a Mac: running the Archive Tool (macOS blocks programs it does not know), and keeping a Mac build of
+    Fortnite. Fortnite ran on Macs until Chapter 2 Season 3 (13.40, 2020).</p>
+  </div>
+  <div class="toc"><strong>On this page</strong><ol>
+    <li><a href="#which">Which download</a></li>
+    <li><a href="#run">Running the tool</a></li>
+    <li><a href="#build">Keeping a Mac build</a></li>
+    <li><a href="#problems">Common problems</a></li>
+  </ol></div>
+
+  <section id="which">
+    <h2>1. Which download</h2>
+    <p>Apple menu &gt; <strong>About This Mac</strong>. <strong>Chip: Apple M...</strong> means Apple Silicon; <strong>Processor:
+    Intel</strong> means Intel.</p>
+    <p><a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-macos-apple-silicon.zip">Apple Silicon</a> <a class="btn" href="https://github.com/Navuryx/retrora-archive-guide/releases/latest/download/Fortnite-Archive-Tool-macos-intel.zip">Intel</a></p>
+  </section>
+
+  <section id="run">
+    <h2>2. Running the tool</h2>
+    <ol class="steps">
+      <li>Double-click the zip in Downloads to unpack it.</li>
+      <li>Open <strong>Terminal</strong> (Applications &gt; Utilities) and go to the folder:
+<pre><code>cd ~/Downloads/Fortnite-Archive-Tool-macos-apple-silicon
+chmod +x retrora-archive</code></pre></li>
+      <li>macOS blocks programs downloaded from the internet that are not notarised. Remove that mark from this one file:
+<pre><code>xattr -d com.apple.quarantine retrora-archive</code></pre>
+      Or run it once, then open <strong>System Settings &gt; Privacy &amp; Security</strong> and choose <strong>Allow Anyway</strong>.</li>
+      <li>Run it:
+<pre><code>./retrora-archive identify "/Users/Shared/Epic Games/Fortnite"</code></pre></li>
+    </ol>
+  </section>
+
+  <section id="build">
+    <h2>3. Keeping a Mac build</h2>
+    <ol class="steps">
+      <li>In the Epic Games Launcher, turn off Auto-Update for Fortnite (Library, <strong>...</strong>, <strong>Manage</strong>).</li>
+      <li>The game is in <code>/Users/Shared/Epic Games/Fortnite</code>. Quit the game and the launcher, then copy that folder to another
+      drive in Finder.</li>
+      <li>Check it:
+<pre><code>./retrora-archive identify "/Volumes/Backup/Fortnite 13.40"
+./retrora-archive manifest "/Volumes/Backup/Fortnite 13.40" "/Volumes/Backup/Fortnite 13.40.json"</code></pre></li>
+    </ol>
+  </section>
+
+  <section id="problems">
+    <h2>4. Common problems</h2>
+    <ul>
+      <li><strong>"cannot be opened because the developer cannot be verified":</strong> use the <code>xattr</code> step above.</li>
+      <li><strong>"Bad CPU type in executable":</strong> you have the other download (Intel versus Apple Silicon).</li>
+      <li><strong>"Permission denied":</strong> run <code>chmod +x retrora-archive</code>.</li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap">
+  Retrora Archive Guide by Navuryx. Retrora is unofficial and not affiliated with or endorsed by Epic Games, Apple, Microsoft, Sony or
+  Nintendo. Fortnite is a trademark of Epic Games. Keep copies of software you own, for your own use. These guides use only each
+  device's own features; nothing here breaks or removes copy protection.
+</footer>
+</body>
+</html>

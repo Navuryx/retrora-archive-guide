@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Switch guide: Retrora Archive Guide</title>
+<meta name="description" content="Keep a copy of Fortnite on Nintendo Switch: move it to a microSD card and keep the card's Nintendo folder.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">RETRORA ARCHIVE GUIDE</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../guides/ios.html">iOS</a>
+      <a href="../guides/android.html">Android</a>
+      <a href="../guides/xbox.html">Xbox</a>
+      <a href="../guides/playstation.html">PlayStation</a>
+      <a href="../guides/switch.html" aria-current="page">Switch</a>
+      <a href="../guides/macos.html">macOS</a>
+      <a href="../guides/linux-steamdeck.html">Linux and Steam Deck</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <h1>Nintendo Switch</h1>
+    <p class="lead">The Switch can move an installed game to its microSD card. The card's <code>Nintendo</code> folder then holds that
+    version, and you can keep a copy of that folder on a computer. It works only with the same Switch.</p>
+  </div>
+  <div class="toc"><strong>On this page</strong><ol>
+    <li><a href="#need">What you need</a></li>
+    <li><a href="#updates">Stop updates</a></li>
+    <li><a href="#move">Move Fortnite to the microSD card</a></li>
+    <li><a href="#copy">Copy the card to a computer</a></li>
+    <li><a href="#back">Put it back</a></li>
+    <li><a href="#problems">Common problems</a></li>
+  </ol></div>
+
+  <section id="need">
+    <h2>1. What you need</h2>
+    <ul>
+      <li>A microSD card (UHS-I is fastest; 64 GB or more for Fortnite). Cards over 32 GB use exFAT, which the Switch may need a free
+      system update to read; it offers it when you insert the card.</li>
+      <li>A microSD card reader for the computer.</li>
+    </ul>
+  </section>
+
+  <section id="updates">
+    <h2>2. Stop updates</h2>
+    <p><strong>System Settings &gt; System &gt; Auto-Update Software</strong>: turn it off.</p>
+  </section>
+
+  <section id="move">
+    <h2>3. Move Fortnite to the microSD card</h2>
+    <ol class="steps">
+      <li>Turn the Switch off completely (hold Power, <strong>Power Options &gt; Turn Off</strong>), insert the card, turn it on.</li>
+      <li><strong>System Settings &gt; Data Management &gt; Manage Software</strong>, choose Fortnite.</li>
+      <li><strong>Move Data</strong> (or <strong>Move Data Between System / microSD Card</strong>), then <strong>Move to microSD
+      Card</strong>.</li>
+    </ol>
+  </section>
+
+  <section id="copy">
+    <h2>4. Copy the card to a computer</h2>
+    <ol class="steps">
+      <li>Turn the Switch off completely, then take the card out.</li>
+      <li>Put the card in the computer and copy the card's whole <code>Nintendo</code> folder, keeping its structure, to a folder named
+      after the version, for example <code>switch-fortnite-12.41</code>.</li>
+      <li>Make a manifest:
+<pre><code>retrora-archive manifest switch-fortnite-12.41 switch-fortnite-12.41.json</code></pre></li>
+    </ol>
+    <div class="good">Copy back with the same kind of computer you copied with (Windows to Windows, Mac to Mac), so the files keep the
+    attributes the Switch expects.</div>
+  </section>
+
+  <section id="back">
+    <h2>5. Put it back</h2>
+    <p>Copy the <code>Nintendo</code> folder back to a microSD card (the same card or a new one), put it in the same Switch, and Fortnite
+    shows in the menu. The files are encrypted to that console; another Switch cannot use them.</p>
+  </section>
+
+  <section id="problems">
+    <h2>6. Common problems</h2>
+    <ul>
+      <li><strong>The card is not recognised:</strong> accept the exFAT system update, or use a card of 32 GB or less.</li>
+      <li><strong>"Corrupt data" after copying back:</strong> the folder structure changed, or it was copied with a different kind of
+      computer. Copy the whole <code>Nintendo</code> folder again, exactly as it was.</li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap">
+  Retrora Archive Guide by Navuryx. Retrora is unofficial and not affiliated with or endorsed by Epic Games, Apple, Microsoft, Sony or
+  Nintendo. Fortnite is a trademark of Epic Games. Keep copies of software you own, for your own use. These guides use only each
+  device's own features; nothing here breaks or removes copy protection.
+</footer>
+</body>
+</html>
