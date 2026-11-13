@@ -34,7 +34,7 @@ On Windows a build is just a folder to copy. Everywhere else there are a few mor
 | `manifest <folder> <file.json>` | Every file with its size, SHA-1 and SHA-256 |
 | `verify <folder> <file.json>` | Missing, changed and extra files against a manifest |
 | `paks <file.pak or folder>` | Files inside Unreal paks whose index is not encrypted |
-| `extract <zip, ipa or apk> <folder>` | Safe unpacking |
+| `extract <zip, 7z, ipa or apk> <folder>` | Safe unpacking (RAR: use 7-Zip) |
 | `pack <folder> <file.zip>` | A build and its manifest in one file |
 
 It never decrypts: console packages, App Store copies and encrypted pak indexes are named as encrypted and left closed. The guides use only each device's own features.
